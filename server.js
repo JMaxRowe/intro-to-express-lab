@@ -27,7 +27,9 @@ app.get("/greetings/:username", (req, res)=>{
 app.get('/roll/:num', (req, res)=>{
     const num = Number(req.params.num)
     if(!Number.isInteger(num)) return res.send('You must specify a number.')
-    res.send(`You rolled ${num}`)
+    
+    const roll = Math.floor(Math.random()*num) +1
+    res.send(`<h1>You rolled ${roll}</h1>`)
 })
 
 
