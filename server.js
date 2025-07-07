@@ -33,7 +33,22 @@ app.get('/roll/:num', (req, res)=>{
 })
 
 
+// Task 3
 
+  const collectibles = [
+    { name: 'shiny ball', price: 5.95 },
+    { name: 'autographed picture of a dog', price: 10 },
+    { name: 'vintage 1970s yogurt SOLD AS-IS', price: 0.99 }
+  ];
+
+
+app.get('/collectibles/:Idx', (req, res)=>{
+    const Idx = Number(req.params.Idx)
+    const item = collectibles[Idx]
+    if(!Number.isInteger(Idx))return res.send("This item is not yet in stock. Check back soon!")
+    
+    res.send(`So you want the ${item.name}? For ${item.price} it can be yours!`)
+})
 
 
 
